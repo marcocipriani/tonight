@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tonight Home',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,39 +29,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Number of meetups:',
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.black,
+          body: Container(
+            color: Colors.teal,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Tonight',
+                      style: TextStyle(
+                          fontFamily: 'Alkatra',
+                          color: Colors.white,
+                          fontSize: 48.0)),
+                  Image.asset('assets/images/peeps/peep-2.png',
+                      width: 128.0, semanticLabel: 'User picture'),
+                  Container(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('username'),
+                      tileColor: Colors.red,
+                    ),
+                  ),
+                  Container(
+                    color: Colors.white,
+                    child: ListTile(
+                      title: Text('password'),
+                      tileColor: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+          )),
     );
   }
 }
